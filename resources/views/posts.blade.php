@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.main')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Posts | WPU Blog</title>
-</head>
-
-<body>
-    <h1>Halaman Posts</h1>
-</body>
-
-</html>
+@section('container')
+    @foreach ($posts as $post)
+        <div class="card shadow mb-5">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="/posts/{{ $post['slug'] }}">{{ $post['title'] }}</a>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">By: {{ $post['author'] }}</h6>
+                <p class="card-text">{{ $post['body'] }}</p>
+            </div>
+        </div>
+    @endforeach
+@endsection
